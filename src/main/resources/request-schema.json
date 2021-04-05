@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {},
+  "type": "object",
+  "properties": {
+    "pid": {
+      "type": "string",
+      "minLength": 1
+    },
+    "question": {
+      "type": "string",
+      "minLength": 1
+    },
+    "deploymentId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sendTo": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "pid",
+    "question",
+    "deploymentId",
+    "sendTo"
+  ]
+}
