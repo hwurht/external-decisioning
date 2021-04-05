@@ -18,12 +18,17 @@
     "sendTo": {
       "type": "string",
       "minLength": 1
+    },
+    "signal": {
+      "type": "string",
+      "minLength": 1
     }
   },
   "required": [
     "pid",
     "question",
     "deploymentId",
-    "sendTo"
+    "sendTo",
+    "signal"
   ]
 }
