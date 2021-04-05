@@ -38,5 +38,15 @@ run it using
 
 from the src folder.
 
-3. Use the example test-external-decision.bpmn file in the src/main/resources folder as the business process to begin the interaction.  Make sure to create a task
-form to input the question and sendTo fields.  Or use a curl command to start the process.
+3. Make sure to update the application.properties for your environment.  Start the Camel routes by
+
+`mvn spring-boot:run`
+
+You should see 5 routes started.
+
+4. Use the example test-external-decision.bpmn file in the src/main/resources folder as the business process to begin the interaction.  Make sure to create a task
+form to input the question and sendTo fields.  Or use a curl command to start the process.  Start the process using a question and user01@james.local as the sendTo.  The playload will be something like:
+
+`{"question":"Is it raining outside","deploymentId":"test-notify_1.0.0-SNAPSHOT","pid":"8","signal":"answer","sendTo":"user01@james.local"}`
+
+5. Once the request from the KIE server is received by the Camel route, a token is creatd using the payload and stored in Redis.  Then an email will be sent to user01@james.local.  That email will allow you to click on either Yes or No and send the appropriate response.  That reply will be read by another Camel route and pull the token from Redis and send the reply back to the KIE server.
